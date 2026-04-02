@@ -4,7 +4,7 @@ import seaborn as sns
 
 # 1. LOAD DATA
 # Ensure you are using the merged file
-df = pd.read_csv('enriched_research_data.csv')
+df = pd.read_csv('/home/qqq/ADS_pandas_new/.csv/enriched_research_data.csv')
 df['date'] = pd.to_datetime(df['date'])
 df = df.sort_values('date')
 
@@ -36,7 +36,7 @@ plt.axhline(0, color='black', linestyle='--', alpha=0.4)
 plt.axhline(0.2, color='green', linestyle=':', alpha=0.3, label='Significant Threshold')
 
 # Aesthetic Styling
-plt.title('The "Pandemic Fatigue" Curve: Evolution of Policy Impact', fontsize=16, fontweight='bold')
+plt.title('90-day rolling correlation between sentiment volatility and stringency index (lag = -6)', fontsize=16, fontweight='bold')
 plt.ylabel('Correlation Coefficient (r)', fontsize=12)
 plt.xlabel('Date', fontsize=12)
 plt.ylim(-0.5, 0.8) # Focus on the positive correlation range
@@ -49,10 +49,11 @@ plt.annotate('Highest Sensitivity (2020)', xy=(pd.Timestamp('2020-07-01'), 0.4),
              arrowprops=dict(facecolor='black', shrink=0.05))
 
 plt.tight_layout()
-plt.savefig('fatigue_analysis_rolling.png', dpi=300)
+plt.savefig('/home/qqq/ADS_pandas_new/graphs/rolling_analysis.png', dpi=300)
 plt.show()
 
 # 5. SUMMARY PRINT
 print("📊 Rolling Correlation Insights:")
 print(f"Mean Optimized Correlation: {df['r_optimized'].mean():.3f}")
 print(f"Maximum Sensitivity Reached: {df['r_optimized'].max():.3f}")
+print(f"Minimum Sensitivity Reached: {df['r_optimized'].min():.3f}")
