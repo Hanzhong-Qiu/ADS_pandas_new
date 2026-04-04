@@ -1,10 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
+from analysis_common import DATA_OUTPUT_DIR, PLOTS_OUTPUT_DIR, ensure_output_dirs
+
+
+ensure_output_dirs()
 
 # 1. LOAD DATA
 # Ensure you are using the merged file
-df = pd.read_csv('enriched_research_data.csv')
+df = pd.read_csv(DATA_OUTPUT_DIR / 'enriched_research_data.csv')
 df['date'] = pd.to_datetime(df['date'])
 df = df.sort_values('date')
 
@@ -49,8 +52,8 @@ plt.annotate('Highest Sensitivity (2020)', xy=(pd.Timestamp('2020-07-01'), 0.4),
              arrowprops=dict(facecolor='black', shrink=0.05))
 
 plt.tight_layout()
-plt.savefig('fatigue_analysis_rolling.png', dpi=300)
-plt.show()
+plt.savefig(PLOTS_OUTPUT_DIR / 'fatigue_analysis_rolling.png', dpi=300)
+plt.close()
 
 # 5. SUMMARY PRINT
 print("📊 Rolling Correlation Insights:")
