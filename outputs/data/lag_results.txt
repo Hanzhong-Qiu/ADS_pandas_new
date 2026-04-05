@@ -1,0 +1,3 @@
+Scenario: Anglosphere
+Best Lag: -6
+Best R: 0.22112696065608253
