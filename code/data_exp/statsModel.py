@@ -1,7 +1,12 @@
+import sys
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import grangercausalitytests
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 from analysis_common import DATA_OUTPUT_DIR, PLOTS_OUTPUT_DIR, ensure_output_dirs
 
 
@@ -47,6 +52,7 @@ plt.axhline(3, color='black', linestyle='--')
 plt.title('Z-Score Anomaly Detection: Identifying Pandemic "Black Swan" Events')
 plt.legend()
 plt.savefig(PLOTS_OUTPUT_DIR / 'anomaly_detection.png')
+plt.close()
 
 # --- ANALYSIS 3: DECAY ANALYSIS (STRESS RECOVERY) ---
 # We look at how many days it takes for a shock to drop by 50%

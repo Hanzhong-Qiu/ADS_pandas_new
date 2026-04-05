@@ -1,7 +1,11 @@
 import pandas as pd
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = BASE_DIR / ".csv"
 
 # Load fused daily aggregates
-df = pd.read_csv('daily_sentiment_volatility.csv')
+df = pd.read_csv(DATA_DIR / 'daily_sentiment_volatility.csv')
 df['date'] = pd.to_datetime(df['date'])
 
 # 2. Create a "Perfect" calendar from start to end

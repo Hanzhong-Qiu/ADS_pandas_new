@@ -1,5 +1,10 @@
+import sys
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 from analysis_common import DATA_OUTPUT_DIR, PLOTS_OUTPUT_DIR, build_merged_dataset, calculate_lag_correlations, ensure_output_dirs
 from analysis_config import FINAL_COUNTRIES, FINAL_SCENARIO_NAME, PRE2022_CUTOFF
 

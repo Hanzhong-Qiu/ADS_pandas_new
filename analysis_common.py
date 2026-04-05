@@ -4,6 +4,7 @@ import pandas as pd
 
 
 BASE_DIR = Path(__file__).resolve().parent
+LEGACY_DATA_DIR = BASE_DIR / ".csv"
 TWEETS_FILE = BASE_DIR / "cleaned_sentiment_data.csv"
 OXFORD_FILE = BASE_DIR / "OxCGRT_compact_national_v1.csv"
 OUTPUT_DIR = BASE_DIR / "outputs"
@@ -16,8 +17,16 @@ def ensure_output_dirs():
     PLOTS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
+def resolve_data_file(filename):
+    root_path = BASE_DIR / filename
+    legacy_path = LEGACY_DATA_DIR / filename
+    if root_path.exists():
+        return root_path
+    return legacy_path
+
+
 def load_inputs():
-    df_tweets = pd.read_csv(TWEETS_FILE)
+    df_tweets = pd.read_csv(resolve_data_file("cleaned_sentiment_data.csv"))
     df_tweets["date"] = pd.to_datetime(df_tweets["date"])
 
     df_oxford = pd.read_csv(OXFORD_FILE, low_memory=False)
