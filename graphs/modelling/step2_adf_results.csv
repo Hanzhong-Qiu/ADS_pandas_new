@@ -1,0 +1,9 @@
+Variable,ADF Statistic,p-value,Lags Used,Stationary
+sentiment_mean,-3.2654,0.016499,20,Yes
+sentiment_volatility,-4.5485,0.000161,19,Yes
+tweet_volume,-2.1238,0.235062,19,No
+StringencyIndex_Average,-0.4508,0.901265,0,No
+Δsentiment_mean,-9.484,0.0,19,Yes
+Δsentiment_volatility,-11.5784,0.0,18,Yes
+Δtweet_volume,-8.2202,0.0,18,Yes
+ΔStringencyIndex_Average,-22.1021,0.0,0,Yes

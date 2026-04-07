@@ -1,0 +1,27 @@
+Variable,ADF Statistic,p-value,Stationary
+sentiment_mean,-6.8347,0.0,Yes
+sentiment_volatility,-15.9529,0.0,Yes
+tweet_volume,-1.442,0.561965,No
+StringencyIndex_Average,-0.4418,0.902882,No
+daily_new_cases,-3.4598,0.00908,Yes
+daily_new_deaths,-3.7009,0.0041,Yes
+C1_School_closing,-1.2732,0.641333,No
+C2_Workplace_closing,-0.8096,0.816282,No
+C4_Restrictions_gatherings,-0.3609,0.916423,No
+C6_Stay_at_home,-1.6399,0.462288,No
+C7_Internal_movement,-1.1162,0.708553,No
+C8_International_travel,0.7007,0.989851,No
+H6_Facial_coverings,-2.5422,0.105546,No
+Δsentiment_mean,-11.2235,0.0,Yes
+Δsentiment_volatility,-13.0995,0.0,Yes
+Δtweet_volume,-9.6572,0.0,Yes
+ΔStringencyIndex_Average,-15.0983,0.0,Yes
+Δdaily_new_cases,-6.9192,0.0,Yes
+Δdaily_new_deaths,-6.8756,0.0,Yes
+ΔC1_School_closing,-8.0143,0.0,Yes
+ΔC2_Workplace_closing,-14.9815,0.0,Yes
+ΔC4_Restrictions_gatherings,-9.019,0.0,Yes
+ΔC6_Stay_at_home,-8.1564,0.0,Yes
+ΔC7_Internal_movement,-31.013,0.0,Yes
+ΔC8_International_travel,-8.2816,0.0,Yes
+ΔH6_Facial_coverings,-18.6459,0.0,Yes
