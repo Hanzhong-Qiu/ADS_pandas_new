@@ -1,1 +1,5 @@
 all_covid_data/
+OxCGRT_compact_national_v1.csv
+.venv/
+__pycache__/
+

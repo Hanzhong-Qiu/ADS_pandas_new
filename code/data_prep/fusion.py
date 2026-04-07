@@ -2,10 +2,14 @@ import pandas as pd
 import glob
 import os
 import datetime
+from pathlib import Path
 
-input_path = './all_covid_data' 
-output_file = 'daily_sentiment_volatility.csv'
-all_files = glob.glob(os.path.join(input_path, "*.csv"))
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = BASE_DIR / ".csv"
+input_path = BASE_DIR / "all_covid_data"
+output_file = DATA_DIR / "daily_sentiment_volatility.csv"
+DATA_DIR.mkdir(exist_ok=True)
+all_files = glob.glob(os.path.join(str(input_path), "*.csv"))
 
 print(f"Found {len(all_files)} files. Starting aggregation...")
 
