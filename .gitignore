@@ -1,2 +1,9 @@
 all_covid_data/
 OxCGRT_compact_national_v1.csv
+.codex
+.venv/
+__pycache__/
+*/__pycache__/
+graphs/event_study/
+graphs/partial_correlation/
+graphs/proportionality/

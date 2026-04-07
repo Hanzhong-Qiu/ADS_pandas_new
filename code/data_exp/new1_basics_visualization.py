@@ -1,11 +1,6 @@
 """
 Exploration 第一步：各变量时间序列总览图
 
-对6个核心变量各画一行，附7天移动平均线，
-在图上标注关键COVID事件，帮助识别政策活跃期。
-
-前置条件：full_analysis_data.csv
-依赖：pip install pandas matplotlib
 """
 
 import pandas as pd
