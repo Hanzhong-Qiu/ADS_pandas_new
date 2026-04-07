@@ -7,3 +7,4 @@ __pycache__/
 graphs/event_study/
 graphs/partial_correlation/
 graphs/proportionality/
+graphs/shock_coupling/
