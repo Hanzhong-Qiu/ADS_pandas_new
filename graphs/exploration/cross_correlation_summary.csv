@@ -1,0 +1,4 @@
+variable,peak_lag,peak_correlation,significant
+Daily New Cases,-30,-0.2372468288510284,Yes
+Daily New Deaths,30,0.39616453568838333,Yes
+Stringency Index,30,-0.1079495674632089,Yes

@@ -1,0 +1,11 @@
+phase,target,peak_lag,peak_corr,n_days
+Phase 1: Initial Outbreak (Mar-Aug 2020),Cases,-6,-0.26743512428070304,166
+Phase 1: Initial Outbreak (Mar-Aug 2020),Deaths,4,-0.3874403402032388,166
+Phase 2: Second Wave (Sep 2020-Feb 2021),Cases,0,0.27026598034704274,181
+Phase 2: Second Wave (Sep 2020-Feb 2021),Deaths,-17,0.2626970212769793,181
+Phase 3: Vaccination Era (Mar-Sep 2021),Cases,21,0.2345290846706184,214
+Phase 3: Vaccination Era (Mar-Sep 2021),Deaths,-29,-0.23501734992747939,214
+Phase 4: Omicron (Oct 2021-Mar 2022),Cases,0,0.3567622485785982,182
+Phase 4: Omicron (Oct 2021-Mar 2022),Deaths,24,0.28863827632509204,182
+Phase 5: Post-Restrictions (Apr-Dec 2022),Cases,-22,-0.16150896146633803,257
+Phase 5: Post-Restrictions (Apr-Dec 2022),Deaths,-22,-0.185721182655998,257
