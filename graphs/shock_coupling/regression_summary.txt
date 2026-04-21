@@ -1,0 +1,30 @@
+OLS: |rolling_r| ~ policy_shock_nearby + case_shock_nearby + death_shock_nearby
+========================================================================================
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          abs_rolling_r   R-squared:                       0.078
+Model:                            OLS   Adj. R-squared:                  0.075
+Method:                 Least Squares   F-statistic:                     27.22
+Date:                Tue, 07 Apr 2026   Prob (F-statistic):           6.64e-17
+Time:                        19:55:47   Log-Likelihood:                 732.80
+No. Observations:                 970   AIC:                            -1458.
+Df Residuals:                     966   BIC:                            -1438.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=======================================================================================
+                          coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+const                   0.1478      0.006     23.735      0.000       0.136       0.160
+policy_shock_nearby     0.0077      0.007      1.045      0.296      -0.007       0.022
+case_shock_nearby      -0.0406      0.009     -4.758      0.000      -0.057      -0.024
+death_shock_nearby      0.0741      0.008      8.902      0.000       0.058       0.090
+==============================================================================
+Omnibus:                       62.438   Durbin-Watson:                   0.193
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               73.490
+Skew:                           0.672   Prob(JB):                     1.10e-16
+Kurtosis:                       3.098   Cond. No.                         3.38
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

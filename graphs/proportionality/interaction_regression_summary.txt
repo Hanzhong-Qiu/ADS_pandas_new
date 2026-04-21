@@ -1,0 +1,62 @@
+PROPORTIONALITY HYPOTHESIS: INTERACTION REGRESSION SUMMARY
+========================================================================
+
+CASES REGIME MODEL
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:         sentiment_diff   R-squared:                       0.001
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.1682
+Date:                Tue, 07 Apr 2026   Prob (F-statistic):              0.918
+Time:                        19:29:56   Log-Likelihood:                 3133.1
+No. Observations:                 999   AIC:                            -6258.
+Df Residuals:                     995   BIC:                            -6239.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+================================================================================================
+                                   coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------
+Intercept                        0.0002      0.000      0.516      0.606      -0.001       0.001
+stringency_diff                  0.0002      0.000      0.444      0.657      -0.001       0.001
+regime_dummy                    -0.0003      0.001     -0.502      0.616      -0.002       0.001
+stringency_diff:regime_dummy    -0.0003      0.001     -0.515      0.606      -0.002       0.001
+==============================================================================
+Omnibus:                       83.047   Durbin-Watson:                   2.550
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              278.906
+Skew:                           0.357   Prob(JB):                     2.73e-61
+Kurtosis:                       5.488   Cond. No.                         2.87
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+========================================================================
+
+DEATHS REGIME MODEL
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:         sentiment_diff   R-squared:                       0.002
+Model:                            OLS   Adj. R-squared:                 -0.001
+Method:                 Least Squares   F-statistic:                    0.5422
+Date:                Tue, 07 Apr 2026   Prob (F-statistic):              0.654
+Time:                        19:29:56   Log-Likelihood:                 3133.6
+No. Observations:                 999   AIC:                            -6259.
+Df Residuals:                     995   BIC:                            -6240.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+================================================================================================
+                                   coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------
+Intercept                    -7.765e-05      0.000     -0.168      0.867      -0.001       0.001
+stringency_diff                  0.0004      0.000      0.815      0.415      -0.001       0.001
+regime_dummy                     0.0004      0.001      0.562      0.574      -0.001       0.002
+stringency_diff:regime_dummy    -0.0007      0.001     -1.124      0.261      -0.002       0.001
+==============================================================================
+Omnibus:                       83.622   Durbin-Watson:                   2.546
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              283.505
+Skew:                           0.357   Prob(JB):                     2.74e-62
+Kurtosis:                       5.510   Cond. No.                         2.78
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

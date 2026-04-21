@@ -1,0 +1,6 @@
+pair,peak_lag,peak_r
+Cases -> Sentiment,0,0.054396813230225716
+Cases -> Stringency,-10,0.0417618048806473
+Deaths -> Sentiment,13,0.0633520016529013
+Deaths -> Stringency,11,0.07405809078089913
+Sentiment -> Stringency,3,0.07941612927701366
