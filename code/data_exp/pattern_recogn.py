@@ -16,7 +16,7 @@ from sklearn.metrics import (classification_report, confusion_matrix,
                               ConfusionMatrixDisplay, roc_auc_score)
 
 # ── 1. LOAD DATA ──────────────────────────────────────────────────────────────
-df = pd.read_csv(Path(__file__).resolve().parents[1] / '.csv' / 'cleaned_sentiment_data.csv')
+df = pd.read_csv(Path(__file__).resolve().parents[2] / '.csv' / 'cleaned_sentiment_data.csv')
 print("Shape:", df.shape)
 print(df.head())
 

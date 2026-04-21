@@ -43,22 +43,22 @@ PHASE_COLORS = ['#3b82f6', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6']
 # algorithm — without this, day-of-week spikes and viral outliers dominate
 # the cost function and swamp the real regime shifts.
 # Volatility and stringency are already bounded, so left as-is.
-tv_filled   = df[volume_col].fillna(method='ffill')
+tv_filled   = df[volume_col].ffill()
 tv_smoothed = tv_filled.rolling(window=7, min_periods=1).mean().values
 tv_log      = np.log1p(tv_smoothed)
 
 # What gets fed to the changepoint algorithm
 detection_signals = {
     'Tweet Volume':          tv_log,
-    'Sentiment Volatility':  df[vol_col].fillna(method='ffill').values,
-    'Stringency Index':      df[policy_col].fillna(method='ffill').values,
+    'Sentiment Volatility':  df[vol_col].ffill().values,
+    'Stringency Index':      df[policy_col].ffill().values,
 }
 
 # What gets shown in the plots (original units, for readability)
 display_signals = {
     'Tweet Volume':          tv_smoothed,  # 7-day MA, raw units
-    'Sentiment Volatility':  df[vol_col].fillna(method='ffill').values,
-    'Stringency Index':      df[policy_col].fillna(method='ffill').values,
+    'Sentiment Volatility':  df[vol_col].ffill().values,
+    'Stringency Index':      df[policy_col].ffill().values,
 }
 
 # ── 4. PELT (penalty-tuned, number of breaks unknown a priori) ──────────────
