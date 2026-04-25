@@ -1,0 +1,243 @@
+# no difference
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.metrics import r2_score
+
+RANDOM_STATE = 42
+N_SPLITS = 5
+MIN_N_PER_PHASE = 60  # too short is not stable
+
+# -----------------------------
+# 1) Load
+# -----------------------------
+df = pd.read_csv("full_analysis_data.csv")
+df["date"] = pd.to_datetime(df["date"])
+df = df.sort_values("date").reset_index(drop=True)
+
+# -----------------------------
+# 2) Phase assignment
+# -----------------------------
+def assign_phase(d):
+    if d < pd.Timestamp("2020-09-01"):
+        return 1
+    elif d < pd.Timestamp("2021-03-01"):
+        return 2
+    elif d < pd.Timestamp("2021-10-01"):
+        return 3
+    elif d < pd.Timestamp("2022-04-01"):
+        return 4
+    else:
+        return 5
+
+df["phase"] = df["date"].apply(assign_phase)
+
+# -----------------------------
+# 3) Target & features (cases/deaths only)
+# -----------------------------
+df["y"] = np.log1p(df["tweet_volume"])                 # target in log space
+df["log_cases"] = np.log1p(df["daily_new_cases"])
+df["log_deaths"] = np.log1p(df["daily_new_deaths"])
+
+# phase-wise lags to avoid leakage
+df["y_lag1"] = df.groupby("phase")["y"].shift(1)
+df["cases_lag1"] = df.groupby("phase")["log_cases"].shift(1)
+df["deaths_lag1"] = df.groupby("phase")["log_deaths"].shift(1)
+
+def run_level_check(include_y_lag1: bool):
+    if include_y_lag1:
+        X_cols = ["log_cases", "log_deaths", "cases_lag1", "deaths_lag1", "y_lag1"]
+        title = "Linearity check (LEVEL, with y_lag1): Naive vs OLS vs RF (cases/deaths only)"
+    else:
+        X_cols = ["log_cases", "log_deaths", "cases_lag1", "deaths_lag1"]
+        title = "Linearity check (LEVEL, NO y_lag1): OLS vs RF (cases/deaths only)"
+
+    rows = []
+    for p in sorted(df["phase"].unique()):
+        d = df[df["phase"] == p].dropna(subset=X_cols + ["y"]).reset_index(drop=True)
+        n = len(d)
+        if n < MIN_N_PER_PHASE:
+            print(f"[skip] phase {p}: n={n}")
+            continue
+
+        X = d[X_cols].values
+        y = d["y"].values
+
+        n_splits = min(N_SPLITS, max(2, n // 50))
+        tscv = TimeSeriesSplit(n_splits=n_splits)
+
+        r2_naive, r2_ols, r2_rf = [], [], []
+
+        for tr, te in tscv.split(X):
+            X_tr, X_te = X[tr], X[te]
+            y_tr, y_te = y[tr], y[te]
+
+            # Baseline only makes sense when y_lag1 is included
+            if include_y_lag1:
+                yhat_naive = X_te[:, X_cols.index("y_lag1")]
+                r2_naive.append(r2_score(y_te, yhat_naive))
+
+            # OLS
+            ols = LinearRegression().fit(X_tr, y_tr)
+            r2_ols.append(r2_score(y_te, ols.predict(X_te)))
+
+            # RF (regularised)
+            rf = RandomForestRegressor(
+                n_estimators=600,
+                max_depth=6,
+                min_samples_leaf=8,
+                random_state=RANDOM_STATE,
+                n_jobs=-1,
+            )
+            rf.fit(X_tr, y_tr)
+            r2_rf.append(r2_score(y_te, rf.predict(X_te)))
+
+        row = {
+            "phase": p, "n": n,
+            "OLS_R2_mean": np.mean(r2_ols), "OLS_R2_std": np.std(r2_ols),
+            "RF_R2_mean": np.mean(r2_rf), "RF_R2_std": np.std(r2_rf),
+        }
+        if include_y_lag1:
+            row.update({
+                "Naive_R2_mean": np.mean(r2_naive),
+                "Naive_R2_std": np.std(r2_naive),
+            })
+        rows.append(row)
+
+    res = pd.DataFrame(rows).sort_values("phase")
+    print("\n" + title)
+    print(res.to_string(index=False))
+
+    plt.figure(figsize=(10,5))
+    if include_y_lag1:
+        plt.errorbar(res["phase"], res["Naive_R2_mean"], yerr=res["Naive_R2_std"],
+                     marker="o", label="Naive (y_{t-1})")
+    plt.errorbar(res["phase"], res["OLS_R2_mean"], yerr=res["OLS_R2_std"],
+                 marker="o", label="OLS")
+    plt.errorbar(res["phase"], res["RF_R2_mean"], yerr=res["RF_R2_std"],
+                 marker="o", label="Random Forest")
+    plt.axhline(0, color="black", linewidth=0.8)
+    plt.xlabel("Phase")
+    plt.ylabel("CV R² (out-of-sample, log(tweet_volume))")
+    plt.title(title)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+    return res
+
+# Run both
+res_no = run_level_check(include_y_lag1=False)
+res_yes = run_level_check(include_y_lag1=True)
+
+# differenced
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.metrics import r2_score
+
+RANDOM_STATE = 42
+N_SPLITS = 5
+MIN_N_PER_PHASE = 60
+
+df = pd.read_csv("full_analysis_data.csv")
+df["date"] = pd.to_datetime(df["date"])
+df = df.sort_values("date").reset_index(drop=True)
+
+def assign_phase(d):
+    if d < pd.Timestamp("2020-09-01"):
+        return 1
+    elif d < pd.Timestamp("2021-03-01"):
+        return 2
+    elif d < pd.Timestamp("2021-10-01"):
+        return 3
+    elif d < pd.Timestamp("2022-04-01"):
+        return 4
+    else:
+        return 5
+
+df["phase"] = df["date"].apply(assign_phase)
+
+# Work in log space, then difference within phase
+df["y"] = np.log1p(df["tweet_volume"])
+df["log_cases"]  = np.log1p(df["daily_new_cases"])
+df["log_deaths"] = np.log1p(df["daily_new_deaths"])
+
+df["dy"]      = df.groupby("phase")["y"].diff()
+df["dcases"]  = df.groupby("phase")["log_cases"].diff()
+df["ddeaths"] = df.groupby("phase")["log_deaths"].diff()
+
+X_cols = ["dcases", "ddeaths"]
+y_col = "dy"
+
+rows = []
+for p in sorted(df["phase"].unique()):
+    d = df[df["phase"] == p].dropna(subset=X_cols + [y_col]).reset_index(drop=True)
+    n = len(d)
+    if n < MIN_N_PER_PHASE:
+        print(f"[skip] phase {p}: n={n}")
+        continue
+
+    X = d[X_cols].values
+    y = d[y_col].values
+
+    n_splits = min(N_SPLITS, max(2, n // 50))
+    tscv = TimeSeriesSplit(n_splits=n_splits)
+
+    r2_base, r2_ols, r2_rf = [], [], []
+
+    for tr, te in tscv.split(X):
+        X_tr, X_te = X[tr], X[te]
+        y_tr, y_te = y[tr], y[te]
+
+        # Baseline for differences: predict 0 change
+        yhat0 = np.zeros_like(y_te)
+        r2_base.append(r2_score(y_te, yhat0))
+
+        ols = LinearRegression().fit(X_tr, y_tr)
+        r2_ols.append(r2_score(y_te, ols.predict(X_te)))
+
+        rf = RandomForestRegressor(
+            n_estimators=600,
+            max_depth=6,
+            min_samples_leaf=10,
+            random_state=RANDOM_STATE,
+            n_jobs=-1,
+        )
+        rf.fit(X_tr, y_tr)
+        r2_rf.append(r2_score(y_te, rf.predict(X_te)))
+
+    rows.append({
+        "phase": p, "n": n,
+        "Baseline0_R2_mean": np.mean(r2_base), "Baseline0_R2_std": np.std(r2_base),
+        "OLS_R2_mean": np.mean(r2_ols), "OLS_R2_std": np.std(r2_ols),
+        "RF_R2_mean":  np.mean(r2_rf),  "RF_R2_std":  np.std(r2_rf),
+    })
+
+res = pd.DataFrame(rows).sort_values("phase")
+print("\nRobustness (DIFFERENCED): Baseline vs OLS vs RF (Δcases/Δdeaths)")
+print(res.to_string(index=False))
+
+plt.figure(figsize=(10,5))
+plt.errorbar(res["phase"], res["Baseline0_R2_mean"], yerr=res["Baseline0_R2_std"],
+             marker="o", label="Baseline (Δ=0)")
+plt.errorbar(res["phase"], res["OLS_R2_mean"], yerr=res["OLS_R2_std"],
+             marker="o", label="OLS")
+plt.errorbar(res["phase"], res["RF_R2_mean"], yerr=res["RF_R2_std"],
+             marker="o", label="Random Forest")
+plt.axhline(0, color="black", linewidth=0.8)
+plt.xlabel("Phase")
+plt.ylabel("CV R² (out-of-sample, Δlog(tweet_volume))")
+plt.title("Robustness (DIFFERENCED): Baseline vs OLS vs RF (cases/deaths only)")
+plt.legend()
+plt.tight_layout()
+plt.show()
