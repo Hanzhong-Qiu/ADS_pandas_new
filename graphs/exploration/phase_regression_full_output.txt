@@ -9,8 +9,8 @@ BASE MODEL:
 Dep. Variable:                      y   R-squared:                       0.009
 Model:                            OLS   Adj. R-squared:                 -0.003
 Method:                 Least Squares   F-statistic:                    0.7448
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):              0.476
-Time:                        16:54:50   Log-Likelihood:                -2325.9
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):              0.476
+Time:                        18:20:35   Log-Likelihood:                -2325.9
 No. Observations:                 165   AIC:                             4658.
 Df Residuals:                     162   BIC:                             4667.
 Df Model:                           2                                         
@@ -37,8 +37,8 @@ EXTENDED MODEL (+ Stringency):
 Dep. Variable:                      y   R-squared:                       0.014
 Model:                            OLS   Adj. R-squared:                 -0.004
 Method:                 Least Squares   F-statistic:                    0.7577
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):              0.519
-Time:                        16:54:50   Log-Likelihood:                -2325.5
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):              0.519
+Time:                        18:20:35   Log-Likelihood:                -2325.5
 No. Observations:                 165   AIC:                             4659.
 Df Residuals:                     161   BIC:                             4671.
 Df Model:                           3                                         
@@ -70,8 +70,8 @@ BASE MODEL:
 Dep. Variable:                      y   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                 -0.011
 Method:                 Least Squares   F-statistic:                  0.005142
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):              0.995
-Time:                        16:54:50   Log-Likelihood:                -2636.5
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):              0.995
+Time:                        18:20:35   Log-Likelihood:                -2636.5
 No. Observations:                 181   AIC:                             5279.
 Df Residuals:                     178   BIC:                             5289.
 Df Model:                           2                                         
@@ -100,8 +100,8 @@ EXTENDED MODEL (+ Stringency):
 Dep. Variable:                      y   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                 -0.016
 Method:                 Least Squares   F-statistic:                   0.03228
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):              0.992
-Time:                        16:54:50   Log-Likelihood:                -2636.4
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):              0.992
+Time:                        18:20:35   Log-Likelihood:                -2636.4
 No. Observations:                 181   AIC:                             5281.
 Df Residuals:                     177   BIC:                             5294.
 Df Model:                           3                                         
@@ -135,8 +135,8 @@ BASE MODEL:
 Dep. Variable:                      y   R-squared:                       0.158
 Model:                            OLS   Adj. R-squared:                  0.150
 Method:                 Least Squares   F-statistic:                     19.75
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           1.38e-08
-Time:                        16:54:50   Log-Likelihood:                -3043.6
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           1.38e-08
+Time:                        18:20:35   Log-Likelihood:                -3043.6
 No. Observations:                 214   AIC:                             6093.
 Df Residuals:                     211   BIC:                             6103.
 Df Model:                           2                                         
@@ -165,8 +165,8 @@ EXTENDED MODEL (+ Stringency):
 Dep. Variable:                      y   R-squared:                       0.165
 Model:                            OLS   Adj. R-squared:                  0.153
 Method:                 Least Squares   F-statistic:                     13.82
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           2.94e-08
-Time:                        16:54:50   Log-Likelihood:                -3042.6
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           2.94e-08
+Time:                        18:20:35   Log-Likelihood:                -3042.6
 No. Observations:                 214   AIC:                             6093.
 Df Residuals:                     210   BIC:                             6107.
 Df Model:                           3                                         
@@ -200,8 +200,8 @@ BASE MODEL:
 Dep. Variable:                      y   R-squared:                       0.216
 Model:                            OLS   Adj. R-squared:                  0.208
 Method:                 Least Squares   F-statistic:                     24.73
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           3.30e-10
-Time:                        16:54:50   Log-Likelihood:                -2529.0
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           3.30e-10
+Time:                        18:20:35   Log-Likelihood:                -2529.0
 No. Observations:                 182   AIC:                             5064.
 Df Residuals:                     179   BIC:                             5074.
 Df Model:                           2                                         
@@ -230,8 +230,8 @@ EXTENDED MODEL (+ Stringency):
 Dep. Variable:                      y   R-squared:                       0.219
 Model:                            OLS   Adj. R-squared:                  0.206
 Method:                 Least Squares   F-statistic:                     16.63
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           1.43e-09
-Time:                        16:54:50   Log-Likelihood:                -2528.7
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           1.43e-09
+Time:                        18:20:35   Log-Likelihood:                -2528.7
 No. Observations:                 182   AIC:                             5065.
 Df Residuals:                     178   BIC:                             5078.
 Df Model:                           3                                         
@@ -265,8 +265,8 @@ BASE MODEL:
 Dep. Variable:                      y   R-squared:                       0.062
 Model:                            OLS   Adj. R-squared:                  0.055
 Method:                 Least Squares   F-statistic:                     8.418
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           0.000289
-Time:                        16:54:50   Log-Likelihood:                -3450.5
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           0.000289
+Time:                        18:20:35   Log-Likelihood:                -3450.5
 No. Observations:                 257   AIC:                             6907.
 Df Residuals:                     254   BIC:                             6918.
 Df Model:                           2                                         
@@ -295,8 +295,8 @@ EXTENDED MODEL (+ Stringency):
 Dep. Variable:                      y   R-squared:                       0.063
 Model:                            OLS   Adj. R-squared:                  0.051
 Method:                 Least Squares   F-statistic:                     5.629
-Date:                Wed, 08 Apr 2026   Prob (F-statistic):           0.000948
-Time:                        16:54:50   Log-Likelihood:                -3450.5
+Date:                Sun, 26 Apr 2026   Prob (F-statistic):           0.000948
+Time:                        18:20:35   Log-Likelihood:                -3450.5
 No. Observations:                 257   AIC:                             6909.
 Df Residuals:                     253   BIC:                             6923.
 Df Model:                           3                                         

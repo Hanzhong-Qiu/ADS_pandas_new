@@ -153,51 +153,24 @@ def run_regression_for_phase(df, phase_name, start, end):
     return result
 
 
-def print_results(all_results):
-    """Print formatted results."""
-    print("\n" + "=" * 70)
-    print("PHASE-SEGMENTED REGRESSION RESULTS")
-    print("=" * 70)
-
-    for r in all_results:
-        print(f"\n{'─' * 60}")
-        print(f"{r['phase']} ({r['start']} to {r['end']}), n={r['n']}")
-        print(f"{'─' * 60}")
-        print(f"  Base Model: Δtweet_vol ~ Δcases + Δdeaths")
-        print(f"    R² = {r['base_r2']:.4f}, Adj R² = {r['base_adj_r2']:.4f}, "
-              f"F p-value = {r['base_f_pval']:.4e}")
-        print(f"    β_cases  = {r['beta_cases']:>12.4f} (SE={r['se_cases']:.4f}, "
-              f"p={r['p_cases']:.4e}) "
-              f"{'✓ sig' if r['p_cases'] < 0.05 else '✗ not sig'}")
-        print(f"    β_deaths = {r['beta_deaths']:>12.4f} (SE={r['se_deaths']:.4f}, "
-              f"p={r['p_deaths']:.4e}) "
-              f"{'✓ sig' if r['p_deaths'] < 0.05 else '✗ not sig'}")
-        print(f"    Standardized: β_cases={r['std_beta_cases']:.4f}, "
-              f"β_deaths={r['std_beta_deaths']:.4f}")
-
-        if "beta_stringency" in r:
-            print(f"\n  Extended Model: + ΔStringency")
-            print(f"    R² = {r['ext_r2']:.4f} (improvement: +{r['r2_improvement']:.4f})")
-            print(f"    β_stringency = {r['beta_stringency']:>12.4f} "
-                  f"(SE={r['se_stringency']:.4f}, p={r['p_stringency']:.4e}) "
-                  f"{'✓ sig' if r['p_stringency'] < 0.05 else '✗ not sig'}")
-
-
 def plot_forest(all_results, output_dir):
     """
     Forest plot: regression coefficients across phases.
-    Uses STANDARDIZED coefficients so phases are comparable.
+    Stacked vertically; value labels placed above-right of each bar
+    to avoid overlapping with error bar lines.
     """
     phases = [r["phase"] for r in all_results]
     n_phases = len(phases)
     y_pos = np.arange(n_phases)
 
-    fig, axes = plt.subplots(1, 2, figsize=(14, 7))
+    fig, axes = plt.subplots(2, 1, figsize=(8, 8))
     fig.suptitle("Standardized Regression Coefficients by Pandemic Phase\n"
                  "(Δtweet_volume ~ Δcases + Δdeaths)",
-                 fontsize=14, fontweight="bold")
+                 fontsize=13, fontweight="bold")
 
-    # ---- Cases forest plot ----
+    # ============================================================
+    # Cases panel (TOP)
+    # ============================================================
     ax = axes[0]
     betas = [r["std_beta_cases"] for r in all_results]
     ses = [r["std_se_cases"] for r in all_results]
@@ -206,24 +179,39 @@ def plot_forest(all_results, output_dir):
     sigs = [r["p_cases"] < 0.05 for r in all_results]
 
     colors = ["steelblue" if s else "lightgray" for s in sigs]
-    ax.barh(y_pos, betas, xerr=[np.array(betas) - np.array(ci_lo),
-                                 np.array(ci_hi) - np.array(betas)],
+    err_lo = np.array(betas) - np.array(ci_lo)
+    err_hi = np.array(ci_hi) - np.array(betas)
+
+    ax.barh(y_pos, betas, xerr=[err_lo, err_hi],
             color=colors, edgecolor="black", linewidth=0.5, capsize=4,
-            height=0.6, alpha=0.85)
+            height=0.55, alpha=0.85)
     ax.axvline(0, color="black", linewidth=0.8)
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(phases, fontsize=10)
-    ax.set_xlabel("Standardized β (Cases)")
-    ax.set_title("Effect of Δcases on Δtweet_volume")
+    ax.set_yticklabels(phases, fontsize=11)
+    ax.set_xlabel("Standardized β (Cases)", fontsize=11)
+    ax.set_title("Effect of Δcases on Δtweet_volume", fontsize=12)
     ax.invert_yaxis()
+    ax.tick_params(axis='x', labelsize=10)
 
-    # Add value labels
-    for i, (b, p) in enumerate(zip(betas, [r["p_cases"] for r in all_results])):
-        label = f"{b:.3f}{'*' if p < 0.05 else ''}"
-        ax.text(b + 0.02 if b >= 0 else b - 0.02, i, label,
-                va="center", ha="left" if b >= 0 else "right", fontsize=9)
+    # ---- 改动：标签放到 bar 上方右侧，避开 error bar ----
+    xlim_now = ax.get_xlim()
+    label_x = xlim_now[1] + 0.04   # 标签固定 x 位置（右边框外一点点）
 
-    # ---- Deaths forest plot ----
+    for i, (b, p) in enumerate(zip(betas,
+                                    [r["p_cases"] for r in all_results])):
+        sign = "−" if b < 0 else ""
+        label = f"{sign}{abs(b):.3f}{'*' if p < 0.05 else ''}"
+        ax.text(label_x, i, label,
+                va="center", ha="left",
+                fontsize=10, fontweight="bold",
+                color="black")
+
+    # 把 x 轴右侧 margin 拉大一些，给标签留位
+    ax.set_xlim(xlim_now[0], xlim_now[1] + 0.18)
+
+    # ============================================================
+    # Deaths panel (BOTTOM)
+    # ============================================================
     ax = axes[1]
     betas = [r["std_beta_deaths"] for r in all_results]
     ses = [r["std_se_deaths"] for r in all_results]
@@ -232,31 +220,49 @@ def plot_forest(all_results, output_dir):
     sigs = [r["p_deaths"] < 0.05 for r in all_results]
 
     colors = ["firebrick" if s else "lightgray" for s in sigs]
-    ax.barh(y_pos, betas, xerr=[np.array(betas) - np.array(ci_lo),
-                                 np.array(ci_hi) - np.array(betas)],
+    err_lo = np.array(betas) - np.array(ci_lo)
+    err_hi = np.array(ci_hi) - np.array(betas)
+
+    ax.barh(y_pos, betas, xerr=[err_lo, err_hi],
             color=colors, edgecolor="black", linewidth=0.5, capsize=4,
-            height=0.6, alpha=0.85)
+            height=0.55, alpha=0.85)
     ax.axvline(0, color="black", linewidth=0.8)
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(phases, fontsize=10)
-    ax.set_xlabel("Standardized β (Deaths)")
-    ax.set_title("Effect of Δdeaths on Δtweet_volume")
+    ax.set_yticklabels(phases, fontsize=11)
+    ax.set_xlabel("Standardized β (Deaths)", fontsize=11)
+    ax.set_title("Effect of Δdeaths on Δtweet_volume", fontsize=12)
     ax.invert_yaxis()
+    ax.tick_params(axis='x', labelsize=10)
 
-    for i, (b, p) in enumerate(zip(betas, [r["p_deaths"] for r in all_results])):
-        label = f"{b:.3f}{'*' if p < 0.05 else ''}"
-        ax.text(b + 0.02 if b >= 0 else b - 0.02, i, label,
-                va="center", ha="left" if b >= 0 else "right", fontsize=9)
+    # ---- 同样的改动 ----
+    xlim_now = ax.get_xlim()
+    label_x = xlim_now[1] + 0.04   # 标签固定 x 位置（右边框外一点点）
 
+    for i, (b, p) in enumerate(zip(betas,
+                                    [r["p_cases"] for r in all_results])):
+        sign = "−" if b < 0 else ""
+        label = f"{sign}{abs(b):.3f}{'*' if p < 0.05 else ''}"
+        ax.text(label_x, i, label,
+                va="center", ha="left",
+                fontsize=10, fontweight="bold",
+                color="black")
+
+    # 把 x 轴右侧 margin 拉大一些，给标签留位
+    ax.set_xlim(xlim_now[0], xlim_now[1] + 0.18)
+
+    # ============================================================
     # Legend
-    sig_patch = mpatches.Patch(color="steelblue", label="p < 0.05")
+    # ============================================================
+    sig_patch = mpatches.Patch(color="steelblue", label="p < 0.05 (cases)")
+    sig_patch2 = mpatches.Patch(color="firebrick", label="p < 0.05 (deaths)")
     ns_patch = mpatches.Patch(color="lightgray", label="p ≥ 0.05")
-    fig.legend(handles=[sig_patch, ns_patch], loc="lower center", ncol=2,
-               fontsize=10, frameon=True)
+    fig.legend(handles=[sig_patch, sig_patch2, ns_patch],
+               loc="lower center", ncol=3,
+               fontsize=10, frameon=True, bbox_to_anchor=(0.5, -0.02))
 
-    plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+    plt.tight_layout(rect=[0, 0.04, 1, 0.95])
     path = os.path.join(output_dir, "08_forest_plot_by_phase.png")
-    fig.savefig(path, dpi=150, bbox_inches="tight")
+    fig.savefig(path, dpi=200, bbox_inches="tight")
     print(f"\nSaved: {path}")
     plt.close()
 
@@ -446,7 +452,7 @@ def main():
         sys.exit(1)
 
     # Print results
-    print_results(all_results)
+    print(all_results)
 
     # Save detailed results
     summary_cols = [

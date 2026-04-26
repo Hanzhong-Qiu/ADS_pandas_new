@@ -33,7 +33,7 @@ CASES_COL = "daily_new_cases"
 DEATHS_COL = "daily_new_deaths"
 STRINGENCY_COL = "StringencyIndex_Average"
 
-MAX_LAG = 30
+MAX_LAG = 7
 
 # Pandemic phases for segmented analysis
 PHASES = {
