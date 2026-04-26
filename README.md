@@ -7,11 +7,11 @@ We study the relationship between COVID-19 social media activity and government 
 ## Team
 
 - Hanzhong Qiu
-- Mohsin Zeeshan
+- Mohsin Zeeshan Syed
 - Pablo Apresa Castellano
 - Yi Wang
 - Sirong Wang
-- Borys
+- Borys Babushkin Fynkelshteyn
 
 ## Layout
 
