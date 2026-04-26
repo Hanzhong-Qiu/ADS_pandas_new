@@ -1,5 +1,14 @@
 all_covid_data/
 OxCGRT_compact_national_v1.csv
 .venv/
-__pycache__/
 
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editor / OS metadata
+.codex
+.vscode/
+.DS_Store
+Thumbs.db

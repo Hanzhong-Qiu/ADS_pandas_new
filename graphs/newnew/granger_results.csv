@@ -1,0 +1,7 @@
+Test,Best_Lag,Best_p,Significant
+Stringency → Sentiment,1,0.17479377517617184,False
+Sentiment → Stringency,2,0.15128144701387927,False
+Cases → Sentiment,8,0.5851468494977425,False
+Sentiment → Cases,7,0.08754748722486112,False
+Cases → Stringency,2,0.6177385345104047,False
+Stringency → Cases,9,0.7141917470945889,False

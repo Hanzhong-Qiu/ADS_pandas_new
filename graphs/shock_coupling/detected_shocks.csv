@@ -1,0 +1,101 @@
+date,shock_type,magnitude,description
+2020-03-23,policy,7.4083333333333385,Stringency changed by +7.41 points
+2020-03-28,cases,0.16955760878435355,7-day MA cases changed by +17.0%
+2020-03-28,deaths,0.2514925373134329,7-day MA deaths changed by +25.1%
+2020-05-14,policy,-7.2533333333333445,Stringency changed by -7.25 points
+2020-06-05,policy,-1.8516666666666666,Stringency changed by -1.85 points
+2020-06-26,policy,-4.6299999999999955,Stringency changed by -4.63 points
+2020-07-01,policy,2.7783333333333218,Stringency changed by +2.78 points
+2020-07-07,deaths,0.13113184972480685,7-day MA deaths changed by +13.1%
+2020-08-08,policy,2.854999999999997,Stringency changed by +2.85 points
+2020-08-12,policy,7.7933333333333366,Stringency changed by +7.79 points
+2020-08-19,deaths,-0.11213579256882789,7-day MA deaths changed by -11.2%
+2020-08-31,policy,-3.8583333333333343,Stringency changed by -3.86 points
+2020-09-15,deaths,0.13433388919770506,7-day MA deaths changed by +13.4%
+2020-10-07,policy,-2.6999999999999957,Stringency changed by -2.70 points
+2020-10-21,policy,4.398333333333333,Stringency changed by +4.40 points
+2020-12-19,policy,2.0049999999999883,Stringency changed by +2.00 points
+2020-12-27,policy,2.006666666666675,Stringency changed by +2.01 points
+2021-01-11,policy,-2.6233333333333206,Stringency changed by -2.62 points
+2021-01-31,policy,2.623333333333335,Stringency changed by +2.62 points
+2021-02-05,policy,-2.4683333333333337,Stringency changed by -2.47 points
+2021-02-15,policy,7.9483333333333235,Stringency changed by +7.95 points
+2021-02-23,policy,-2.8549999999999898,Stringency changed by -2.85 points
+2021-02-28,policy,6.713333333333338,Stringency changed by +6.71 points
+2021-03-07,policy,-4.321666666666658,Stringency changed by -4.32 points
+2021-03-12,policy,-2.3916666666666657,Stringency changed by -2.39 points
+2021-04-01,policy,-4.166666666666671,Stringency changed by -4.17 points
+2021-04-07,deaths,0.24637203166225374,7-day MA deaths changed by +24.6%
+2021-04-12,policy,-2.164999999999999,Stringency changed by -2.16 points
+2021-04-14,deaths,-0.21957707141907468,7-day MA deaths changed by -22.0%
+2021-04-24,policy,6.015000000000001,Stringency changed by +6.02 points
+2021-05-10,policy,-4.170000000000009,Stringency changed by -4.17 points
+2021-05-27,deaths,0.15174129353235144,7-day MA deaths changed by +15.2%
+2021-05-28,policy,4.62833333333333,Stringency changed by +4.63 points
+2021-05-31,cases,-0.08165862220274,7-day MA cases changed by -8.2%
+2021-06-03,deaths,-0.17929850380182932,7-day MA deaths changed by -17.9%
+2021-06-05,policy,-1.8516666666666737,Stringency changed by -1.85 points
+2021-06-11,policy,-3.088333333333331,Stringency changed by -3.09 points
+2021-06-26,policy,2.4683333333333337,Stringency changed by +2.47 points
+2021-07-06,cases,0.08564898531380893,7-day MA cases changed by +8.6%
+2021-07-08,policy,-2.011666666666663,Stringency changed by -2.01 points
+2021-07-16,cases,0.10472773693709181,7-day MA cases changed by +10.5%
+2021-07-30,cases,0.09437064018015495,7-day MA cases changed by +9.4%
+2021-07-30,deaths,0.12744053958113533,7-day MA deaths changed by +12.7%
+2021-08-17,policy,12.335,Stringency changed by +12.34 points
+2021-08-19,deaths,0.1166516921233729,7-day MA deaths changed by +11.7%
+2021-09-06,cases,-0.0880699120531312,7-day MA cases changed by -8.8%
+2021-09-07,policy,-3.1750000000000043,Stringency changed by -3.18 points
+2021-09-13,cases,0.08622837077527379,7-day MA cases changed by +8.6%
+2021-09-13,deaths,0.11501958421211245,7-day MA deaths changed by +11.5%
+2021-11-15,policy,2.0,Stringency changed by +2.00 points
+2021-11-26,deaths,-0.16347517730496441,7-day MA deaths changed by -16.3%
+2021-12-02,cases,0.1087259074151965,7-day MA cases changed by +10.9%
+2021-12-02,deaths,0.4188876718997343,7-day MA deaths changed by +41.9%
+2021-12-03,policy,-2.164999999999999,Stringency changed by -2.16 points
+2021-12-09,deaths,-0.1888520448444747,7-day MA deaths changed by -18.9%
+2021-12-15,policy,-4.419999999999995,Stringency changed by -4.42 points
+2021-12-22,deaths,0.18221936195642918,7-day MA deaths changed by +18.2%
+2021-12-23,cases,0.09787061450041046,7-day MA cases changed by +9.8%
+2021-12-29,deaths,-0.1525381961557417,7-day MA deaths changed by -15.3%
+2022-01-03,cases,0.14935402785430596,7-day MA cases changed by +14.9%
+2022-01-07,deaths,0.15434599156117157,7-day MA deaths changed by +15.4%
+2022-01-17,cases,-0.10270436585612652,7-day MA cases changed by -10.3%
+2022-01-22,policy,-2.8216666666666654,Stringency changed by -2.82 points
+2022-01-25,cases,-0.10401203864664377,7-day MA cases changed by -10.4%
+2022-02-07,cases,-0.2575278305068257,7-day MA cases changed by -25.8%
+2022-02-17,cases,-0.12207243991287431,7-day MA cases changed by -12.2%
+2022-02-21,cases,-0.08539986798072718,7-day MA cases changed by -8.5%
+2022-02-21,deaths,-0.13748066678123394,7-day MA deaths changed by -13.7%
+2022-02-21,policy,-2.3433333333333337,Stringency changed by -2.34 points
+2022-02-28,cases,0.09876641481507065,7-day MA cases changed by +9.9%
+2022-02-28,policy,-4.353333333333325,Stringency changed by -4.35 points
+2022-03-16,cases,0.0873266821844716,7-day MA cases changed by +8.7%
+2022-04-13,policy,-4.376666666666669,Stringency changed by -4.38 points
+2022-04-19,cases,0.12399963944388692,7-day MA cases changed by +12.4%
+2022-04-26,cases,-0.11624106071853357,7-day MA cases changed by -11.6%
+2022-05-04,deaths,0.27584541062803347,7-day MA deaths changed by +27.6%
+2022-05-11,deaths,-0.2648604933279505,7-day MA deaths changed by -26.5%
+2022-05-21,policy,-1.9916666666666671,Stringency changed by -1.99 points
+2022-05-30,cases,-0.09580800200775053,7-day MA cases changed by -9.6%
+2022-06-01,deaths,-0.13942170054393066,7-day MA deaths changed by -13.9%
+2022-06-06,cases,0.10057195255805551,7-day MA cases changed by +10.1%
+2022-06-08,deaths,0.13546056592419697,7-day MA deaths changed by +13.5%
+2022-06-15,deaths,-0.13019943019946334,7-day MA deaths changed by -13.0%
+2022-06-30,deaths,-0.1549062844542719,7-day MA deaths changed by -15.5%
+2022-07-06,cases,0.11203540275752699,7-day MA cases changed by +11.2%
+2022-07-07,deaths,0.45339873861243496,7-day MA deaths changed by +45.3%
+2022-07-11,cases,0.10706027811416519,7-day MA cases changed by +10.7%
+2022-07-14,deaths,-0.1243733127651061,7-day MA deaths changed by -12.4%
+2022-08-20,cases,-0.08894265297328285,7-day MA cases changed by -8.9%
+2022-08-21,deaths,0.15162907268170422,7-day MA deaths changed by +15.2%
+2022-08-28,deaths,-0.16138572032109377,7-day MA deaths changed by -16.1%
+2022-09-05,cases,-0.10970180670316154,7-day MA cases changed by -11.0%
+2022-09-07,deaths,-0.16421624066952967,7-day MA deaths changed by -16.4%
+2022-09-30,cases,-0.10589538303203827,7-day MA cases changed by -10.6%
+2022-11-18,deaths,0.13441558441564627,7-day MA deaths changed by +13.4%
+2022-11-24,cases,-0.10287319093629987,7-day MA cases changed by -10.3%
+2022-11-24,deaths,-0.12130257801899202,7-day MA deaths changed by -12.1%
+2022-12-01,cases,0.27064792825271455,7-day MA cases changed by +27.1%
+2022-12-01,deaths,0.24610854017669936,7-day MA deaths changed by +24.6%
+2022-12-07,deaths,0.13170300530347911,7-day MA deaths changed by +13.2%

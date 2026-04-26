@@ -1,0 +1,10 @@
+phase,model,feature,perm_mean
+Phase 1: Initial outbreak,GradientBoosting,Δdeaths,0.14105351825235368
+Phase 1: Initial outbreak,OLS,ΔC2 work,0.16064298213756806
+Phase 1: Initial outbreak,RandomForest,Δcases,0.016685365975971343
+Phase 2: Second wave & vaccine,GradientBoosting,Δdeaths,0.24829231967677529
+Phase 2: Second wave & vaccine,OLS,ΔC2 work,0.13667642529387203
+Phase 2: Second wave & vaccine,RandomForest,Δcases,0.09652278856152559
+Phase 3: Reopening & late,GradientBoosting,Δdeaths,0.027469290525159375
+Phase 3: Reopening & late,OLS,ΔH6 masks,0.015019778875314447
+Phase 3: Reopening & late,RandomForest,Δdeaths,0.005324903725724192

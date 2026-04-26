@@ -35,7 +35,6 @@ def build_policy_decoder_dataset():
     df_merged = pd.merge(df_tweets, df_policy, on="date", how="inner").sort_values("date")
     df_merged = df_merged[df_merged["date"] <= PRE2022_CUTOFF].copy()
 
-    # Shift the target backward so today's policy mix predicts volatility seven days later.
     df_merged["volatility_plus_7d"] = df_merged["sentiment_volatility"].shift(-TARGET_SHIFT_DAYS)
     df_model = df_merged.dropna(subset=FEATURE_COLUMNS + ["volatility_plus_7d"]).copy()
     return df_model

@@ -1,0 +1,5 @@
+,sentiment_mean,sentiment_volatility,tweet_volume,StringencyIndex_Average
+sentiment_mean,,0.129845,0.274177,0.273692
+sentiment_volatility,0.549269,,0.061441,0.405374
+tweet_volume,0.053901,0.649933,,0.145205
+StringencyIndex_Average,0.106311,0.860786,0.903688,

@@ -37,21 +37,20 @@ if not all_files:
         "Make sure the raw tweet files exist there before running fusion.py."
     )
 
-# The dataset has no headers, Column 0: Tweet ID; Column 1: Sentiment Score
+                                                                           
 daily_stats = []
 
 for i, filename in enumerate(all_files):
     try:
-        # We read the file without headers
-        # Use only column 1 (sentiment) to save massive amounts of RAM
-        # We use column 0 (ID) just for the first row to get the date
+                                          
+                                                                      
         df = pd.read_csv(filename, header=None, names=['tweet_id', 'sentiment'], low_memory=False)
 
         if df.empty:
             print(f"⚠️ Skipping empty file: {filename}")
             continue
         
-        # Twitter encodes the timestamp in the ID.
+                                                  
         example_id = int(df['tweet_id'].iloc[0])
         timestamp = (example_id >> 22) + 1288834974657
         date = datetime.datetime.fromtimestamp(timestamp/1000.0).date()
@@ -81,10 +80,10 @@ if fused_df.empty:
         "Check whether the files are empty or whether they contain valid tweet IDs and sentiment values."
     )
 
-# If volatility is NaN (happens if a file has only 1 tweet), we drop or impute.
+                                                                               
 fused_df = fused_df.dropna(subset=['sentiment_volatility'])
 
-# Save the "Cleaned" Fused Dataset
+                                  
 fused_df.to_csv(output_file, index=False)
 
 print(f"Fused metrics saved as {output_file}")

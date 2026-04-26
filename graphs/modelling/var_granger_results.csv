@@ -1,0 +1,7 @@
+cause,effect,f_stat,p_value,significant
+StringencyIndex_Average,tweet_volume,1.3103837851878086,0.2331319292166023,False
+tweet_volume,StringencyIndex_Average,0.6264906557141661,0.7562317475360747,False
+daily_new_deaths,tweet_volume,5.251597375717297,1.4657602937734256e-06,True
+daily_new_cases,tweet_volume,0.6968800649203607,0.6946784304767875,False
+daily_new_deaths,StringencyIndex_Average,0.8525741143811916,0.5561871225870877,False
+daily_new_cases,StringencyIndex_Average,0.5901795182801699,0.7868107332136858,False
