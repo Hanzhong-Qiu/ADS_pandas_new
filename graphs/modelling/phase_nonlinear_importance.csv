@@ -1,0 +1,82 @@
+phase,model,feature,perm_mean,perm_std
+Phase 1: Initial outbreak,OLS,Δcases,0.06829243015143546,0.0656933700494812
+Phase 1: Initial outbreak,OLS,Δdeaths,-0.0058275018960718405,0.005781706520348556
+Phase 1: Initial outbreak,OLS,ΔC1 school,-0.008576915005227828,0.010342099382806398
+Phase 1: Initial outbreak,OLS,ΔC2 work,0.16064298213756806,0.10207894458803901
+Phase 1: Initial outbreak,OLS,ΔC4 gather,0.0024884149595889716,0.025414352882838876
+Phase 1: Initial outbreak,OLS,ΔC6 stay-home,-0.09995040202016169,0.07383072765599989
+Phase 1: Initial outbreak,OLS,ΔC7 internal,-0.12394357388802177,0.06203447321051853
+Phase 1: Initial outbreak,OLS,ΔC8 intl,0.0,0.0
+Phase 1: Initial outbreak,OLS,ΔH6 masks,-0.001807378759616003,0.0074869051369902085
+Phase 1: Initial outbreak,RandomForest,Δcases,0.016685365975971343,0.08966578245079948
+Phase 1: Initial outbreak,RandomForest,Δdeaths,-0.022982910238482472,0.03242898015111823
+Phase 1: Initial outbreak,RandomForest,ΔC1 school,-0.01813041512429243,0.015615000732806689
+Phase 1: Initial outbreak,RandomForest,ΔC2 work,-0.024560409284037382,0.022012896706496934
+Phase 1: Initial outbreak,RandomForest,ΔC4 gather,0.00047927699180084994,0.0007328657168082279
+Phase 1: Initial outbreak,RandomForest,ΔC6 stay-home,-2.2204460492503132e-17,6.661338147750939e-17
+Phase 1: Initial outbreak,RandomForest,ΔC7 internal,-2.6645352591003756e-17,7.215595591812693e-17
+Phase 1: Initial outbreak,RandomForest,ΔC8 intl,-2.6645352591003756e-17,7.215595591812694e-17
+Phase 1: Initial outbreak,RandomForest,ΔH6 masks,-6.480101385559766e-05,0.00035473801534861534
+Phase 1: Initial outbreak,GradientBoosting,Δcases,-0.257926497328971,0.17889853284869608
+Phase 1: Initial outbreak,GradientBoosting,Δdeaths,0.14105351825235368,0.20649426575857271
+Phase 1: Initial outbreak,GradientBoosting,ΔC1 school,0.010783341193421276,0.03209909394019662
+Phase 1: Initial outbreak,GradientBoosting,ΔC2 work,-0.1257505344632484,0.1607411111547799
+Phase 1: Initial outbreak,GradientBoosting,ΔC4 gather,-0.008111988706843496,0.02911379499298154
+Phase 1: Initial outbreak,GradientBoosting,ΔC6 stay-home,-0.018789269299464707,0.014049742008174356
+Phase 1: Initial outbreak,GradientBoosting,ΔC7 internal,-0.00826780976715777,0.005595929572988363
+Phase 1: Initial outbreak,GradientBoosting,ΔC8 intl,0.0,0.0
+Phase 1: Initial outbreak,GradientBoosting,ΔH6 masks,-0.00542223639679471,0.006587273101715338
+Phase 2: Second wave & vaccine,OLS,Δcases,0.00814172829135523,0.012627435283902512
+Phase 2: Second wave & vaccine,OLS,Δdeaths,0.026938154604535965,0.012947339183015544
+Phase 2: Second wave & vaccine,OLS,ΔC1 school,-0.09148246898159995,0.08705426588073717
+Phase 2: Second wave & vaccine,OLS,ΔC2 work,0.13667642529387203,0.05283152402791941
+Phase 2: Second wave & vaccine,OLS,ΔC4 gather,0.06749526318674774,0.05366572773980134
+Phase 2: Second wave & vaccine,OLS,ΔC6 stay-home,-0.011104134514791763,0.02759075748052204
+Phase 2: Second wave & vaccine,OLS,ΔC7 internal,0.009615936948356905,0.020127557273742575
+Phase 2: Second wave & vaccine,OLS,ΔC8 intl,0.0,0.0
+Phase 2: Second wave & vaccine,OLS,ΔH6 masks,0.030097295075628753,0.02317135517543737
+Phase 2: Second wave & vaccine,RandomForest,Δcases,0.09652278856152559,0.10840894829111498
+Phase 2: Second wave & vaccine,RandomForest,Δdeaths,-0.016522946188313025,0.06307750357466232
+Phase 2: Second wave & vaccine,RandomForest,ΔC1 school,-0.014817589124786115,0.017146367318700013
+Phase 2: Second wave & vaccine,RandomForest,ΔC2 work,0.009610619784760749,0.003967672205229646
+Phase 2: Second wave & vaccine,RandomForest,ΔC4 gather,0.012678443055501792,0.011097270500154664
+Phase 2: Second wave & vaccine,RandomForest,ΔC6 stay-home,-0.0013580486003847002,0.0012288834092397452
+Phase 2: Second wave & vaccine,RandomForest,ΔC7 internal,-0.0004999876539825588,0.00029185114210090145
+Phase 2: Second wave & vaccine,RandomForest,ΔC8 intl,0.0,0.0
+Phase 2: Second wave & vaccine,RandomForest,ΔH6 masks,0.001077996373140091,0.0006445080292951912
+Phase 2: Second wave & vaccine,GradientBoosting,Δcases,0.24675725593916956,0.1675058132201801
+Phase 2: Second wave & vaccine,GradientBoosting,Δdeaths,0.24829231967677529,0.151691618479538
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC1 school,-0.03488303024621027,0.04879749015844087
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC2 work,0.011409068136388662,0.02331301451874916
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC4 gather,0.041239440938955735,0.0451228486925021
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC6 stay-home,-0.039046463909685594,0.030054125379312808
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC7 internal,-0.013839659295532578,0.015791677699653332
+Phase 2: Second wave & vaccine,GradientBoosting,ΔC8 intl,0.0,0.0
+Phase 2: Second wave & vaccine,GradientBoosting,ΔH6 masks,-0.0029343848423924166,0.01325920448846756
+Phase 3: Reopening & late,OLS,Δcases,-0.005783848337726305,0.005631203755923746
+Phase 3: Reopening & late,OLS,Δdeaths,-0.0016543820025236066,0.0011006675788250038
+Phase 3: Reopening & late,OLS,ΔC1 school,0.0,0.0
+Phase 3: Reopening & late,OLS,ΔC2 work,0.0,0.0
+Phase 3: Reopening & late,OLS,ΔC4 gather,0.0,0.0
+Phase 3: Reopening & late,OLS,ΔC6 stay-home,0.0,0.0
+Phase 3: Reopening & late,OLS,ΔC7 internal,0.0021417692056486717,0.0018003954499157546
+Phase 3: Reopening & late,OLS,ΔC8 intl,4.267808704843779e-05,0.0021369682182232706
+Phase 3: Reopening & late,OLS,ΔH6 masks,0.015019778875314447,0.011109877122161084
+Phase 3: Reopening & late,RandomForest,Δcases,-0.024809003499285068,0.011497646390577623
+Phase 3: Reopening & late,RandomForest,Δdeaths,0.005324903725724192,0.023513969832952435
+Phase 3: Reopening & late,RandomForest,ΔC1 school,0.0,0.0
+Phase 3: Reopening & late,RandomForest,ΔC2 work,4.440892098500626e-18,3.108624468950438e-17
+Phase 3: Reopening & late,RandomForest,ΔC4 gather,4.440892098500626e-18,3.108624468950438e-17
+Phase 3: Reopening & late,RandomForest,ΔC6 stay-home,4.440892098500626e-18,3.108624468950438e-17
+Phase 3: Reopening & late,RandomForest,ΔC7 internal,0.0,0.0
+Phase 3: Reopening & late,RandomForest,ΔC8 intl,-6.245860740712317e-06,0.00043522623255907864
+Phase 3: Reopening & late,RandomForest,ΔH6 masks,0.00013795907674436946,0.0003659983171192939
+Phase 3: Reopening & late,GradientBoosting,Δcases,-0.01870974730312196,0.03058330298426635
+Phase 3: Reopening & late,GradientBoosting,Δdeaths,0.027469290525159375,0.037729452629887875
+Phase 3: Reopening & late,GradientBoosting,ΔC1 school,0.0,0.0
+Phase 3: Reopening & late,GradientBoosting,ΔC2 work,0.0,0.0
+Phase 3: Reopening & late,GradientBoosting,ΔC4 gather,0.0,0.0
+Phase 3: Reopening & late,GradientBoosting,ΔC6 stay-home,0.0,0.0
+Phase 3: Reopening & late,GradientBoosting,ΔC7 internal,-0.005964407395669041,0.004385997066641835
+Phase 3: Reopening & late,GradientBoosting,ΔC8 intl,-0.00017331834667059454,0.0022041239314026856
+Phase 3: Reopening & late,GradientBoosting,ΔH6 masks,0.0023938124977735064,0.0038496801874368203

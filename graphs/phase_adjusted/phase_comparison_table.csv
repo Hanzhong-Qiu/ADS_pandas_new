@@ -1,0 +1,11 @@
+phase_num,target,original_phase,original_lag,original_r,adjusted_phase,adjusted_lag,adjusted_r,delta_r
+1,Cases,Phase 1: Initial Outbreak (Mar-Aug 2020),-6,-0.2674,Phase 1: Initial Outbreak (Mar-Oct 2020),-6,-0.2852,-0.0178
+1,Deaths,Phase 1: Initial Outbreak (Mar-Aug 2020),4,-0.3874,Phase 1: Initial Outbreak (Mar-Oct 2020),7,-0.3291,0.0583
+2,Cases,Phase 2: Second Wave (Sep 2020-Feb 2021),0,0.2703,Phase 2: Second Wave (Nov 2020-Feb 2021),0,0.3021,0.0318
+2,Deaths,Phase 2: Second Wave (Sep 2020-Feb 2021),-17,0.2627,Phase 2: Second Wave (Nov 2020-Feb 2021),-17,0.3179,0.0552
+3,Cases,Phase 3: Vaccination Era (Mar-Sep 2021),21,0.2345,Phase 3: Vaccination Era (Mar-Nov 2021),0,0.2087,-0.0259
+3,Deaths,Phase 3: Vaccination Era (Mar-Sep 2021),-29,-0.235,Phase 3: Vaccination Era (Mar-Nov 2021),-7,-0.2055,0.0295
+4,Cases,Phase 4: Omicron (Oct 2021-Mar 2022),0,0.3568,Phase 4: Omicron (Nov 2021-Mar 2022),0,0.4085,0.0518
+4,Deaths,Phase 4: Omicron (Oct 2021-Mar 2022),24,0.2886,Phase 4: Omicron (Nov 2021-Mar 2022),20,0.4009,0.1122
+5,Cases,Phase 5: Post-Restrictions (Apr-Dec 2022),-22,-0.1615,Phase 5: Post-Restrictions (Apr-Dec 2022),-22,-0.1615,0.0
+5,Deaths,Phase 5: Post-Restrictions (Apr-Dec 2022),-22,-0.1857,Phase 5: Post-Restrictions (Apr-Dec 2022),-22,-0.1857,0.0
